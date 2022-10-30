@@ -4,7 +4,7 @@
             <div class="wave1"></div>
             <div class="wave1"></div>
         </div>
-        <img src="../img/26th.jpg" alt="Alan" id="poster_master_play">
+        <img src="/BTL/images/26.jpg" alt="Alan" id="poster_master_play">
         <h5 id="title">Vande Mataram<br>
             <div class="subtitle">Bankim Chandra</div>
         </h5>
