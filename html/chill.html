@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../fonts/fontawesome-free-6.2.0-web/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <title>Music App Chill</title>
+</head>
+<body>
+    <header>
+        <div class="top">
+            <nav>
+                <ul>
+                    <li>Home</li>
+                    <li>Chill<span></span></li>
+                    <li>Page</li>
+                </ul>
+                <div class="search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search music">
+                </div>
+                <div class="user">
+                    <li>Login</li>
+                </div>
+            </nav>
+        </div>
+        <div class="left">
+            <div class="player">
+                <!-- Dashboard -->
+                <div class="dashborad">
+                    <!-- Header -->
+                    <div class="header">
+                        <h4>Now playing:</h4>
+                        <h2>On My Way</h2>
+                    </div>
+                    <!-- CD -->
+                    <div class="cd">
+                        <div class="cd-thumb"style="background-image: url(./img/1.jpg)" >   
+                        </div>
+                    </div>
+                    <!-- Control -->
+                    <div class="control">
+                        <div class="btn btn-repeat">
+                        <i class="fas fa-redo"></i>
+                        </div>
+                        <div class="btn btn-prev">
+                        <i class="fas fa-step-backward"></i>
+                        </div>
+                        <div class="btn btn-toggle-play">
+                        <i class="fas fa-pause icon-pause"></i>
+                        <i class="fas fa-play icon-play"></i>
+                        </div>
+                        <div class="btn btn-next">
+                        <i class="fas fa-step-forward"></i>
+                        </div>
+                        <div class="btn btn-random">
+                        <i class="fas fa-random"></i>
+                        </div>
+                    </div>
+                    <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100">
+                    <audio id="audio" src=""></audio>
+                </div>
+                <!-- Playlist -->
+                <div class="playlist">
+                    <!-- <p style="color: red;">Xin chao</p> -->
+                    <!-- <div class="song">
+                        <div class="thumb" style="background-image: url(./img/2.jpg)">
+                        </div>
+                        <div class="body">
+                            <h3 class="title">Alan Walker-Fade</h3>
+                            <p class="author">Alan Walker</p>
+                        </div>
+                        <div class="option">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div> -->
+                </div> 
+            </div>
+        </div>
+        <div class="right">
+            <div class="chill">
+                <ul class="chill_frist">
+                    <li><i class="fa-solid fa-cloud"></i></li>
+                    <li><i class="fa-solid fa-cloud-bolt"></i></li>
+                    <li><i class="fa-solid fa-tree"></i></li>
+                    <li><i class="fa-solid fa-wind"></i></li>
+                </ul>
+                <ul class="chill_second">
+                    <li><i class="fa-solid fa-leaf"></i></li>
+                    <li><i class="fa-solid fa-water"></i></li>
+                    <li><i class="fa-solid fa-droplet"></i></li>
+                    <li><i class="fa-solid fa-fire-flame-curved"></i></li>
+                </ul>
+                <ul class="third">
+                    <li><i class="fa-solid fa-clover"></i></li>
+                    <li><i class="fa-solid fa-mug-hot"></i></li>
+                    <!-- <li></li>
+                    <li></li> -->
+                </ul>
+            </div>
+            <div class="Cmt"></div>
+        </div>
+    </header>
+    <script src="../js/style.js"></script>
+</body>
+</html>
