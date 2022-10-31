@@ -6,7 +6,7 @@
 <!-- head -->
 <?php 
     $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
-    require_once "$rootDir/BTL/includes/head.php"?>
+    require_once "$rootDir/BTL/includes/index/head.php"?>
 
 <!-- menu side -->
 
@@ -29,7 +29,7 @@
 
 <!-- footer -->
 
-<?php require_once "$rootDir/BTL/includes/foot.php"?>
+<?php require_once "$rootDir/BTL/includes/index/foot.php"?>
 
 <!-- footer -->
 
