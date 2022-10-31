@@ -317,18 +317,54 @@
                                         <button><i class="bi bi-gear" style="font-size: 20px ;"></i></button>
                                         <button><i class="bi bi-trash" style="font-size: 20px ;"></i></button>
                                 </div>
-                                <div class="input_music">
-                                    <table>
+                                <div class="input_music  ">
+                                    <table class="table-responsive">
                                         <tr>
                                             <th><input type="text" FieldName="ID" placeholder="Id"></th>
                                             <th><input type="text" FieldName="TenBaiHat" placeholder="Tên"></th>
                                             <th><input type="text" FieldName="Anh" placeholder="Ảnh"></th>
                                             <th><input type="text" FieldName="File" placeholder="Đường Dẫn"></th>
                                             <th><input type="text" FieldName="LuotThich" placeholder="Lượt Thích"></th>
-                                            <th><input type="text" FieldName="IDAlbum" placeholder="Album"></th>
-                                            <th><input type="text" FieldName="IDChuDe" placeholder="Chủ Đề"></th>
-                                            <th><input type="text" FieldName="IDTheLoai" placeholder="Thể Loại"></th>
-                                            <th><input type="text" FieldName="IDCaSi" placeholder="Ca Sĩ"></th>
+                                            <!-- <th><input type="text" FieldName="IDAlbum" placeholder="Album"></th> -->
+                                            <th>
+                                                <input type="text" name="city" list="cityname" FieldName="IDAlbum" placeholder="Album" > 
+                                                <datalist id="cityname">
+                                                    <option value="Mẹ">Mẹ</option>
+                                                    <option value="Gia Đình">Gia Đình</option>
+                                                    <option value="Tình Yêu">Tình Yêu</option>
+                                                    <option value="Tết">Tết</option>
+                                                </datalist>
+                                            </th>
+                                            <!-- <th><input type="text" FieldName="IDChuDe" placeholder="Chủ Đề"></th> -->
+                                            <th>
+                                                <input type="text" name="city" list="cityname" FieldName="IDChuDe" placeholder="Chủ Đề" > 
+                                                    <datalist id="cityname">
+                                                        <option value="Mẹ">Mẹ</option>
+                                                        <option value="Gia Đình">Gia Đình</option>
+                                                        <option value="Tình Yêu">Tình Yêu</option>
+                                                        <option value="Tết">Tết</option>
+                                                    </datalist>
+                                            </th>
+                                            <!-- <th><input type="text" FieldName="IDTheLoai" placeholder="Thể Loại"></th> -->
+                                            <th>
+                                                <input type="text" name="city" list="cityname" FieldName="IDTheLoai" placeholder="Thể Loại" > 
+                                                    <datalist id="cityname">
+                                                        <option value="Mẹ">Mẹ</option>
+                                                        <option value="Gia Đình">Gia Đình</option>
+                                                        <option value="Tình Yêu">Tình Yêu</option>
+                                                        <option value="Tết">Tết</option>
+                                                    </datalist>
+                                            </th>
+                                            <!-- <th><input type="text" FieldName="IDCaSi" placeholder="Ca Sĩ"></th> -->
+                                            <th>
+                                                <input type="text" name="city" list="cityname" FieldName="IDCaSi" placeholder="Ca Sĩ" > 
+                                                <datalist id="cityname">
+                                                    <option value="Mẹ">Mẹ</option>
+                                                    <option value="Gia Đình">Gia Đình</option>
+                                                    <option value="Tình Yêu">Tình Yêu</option>
+                                                    <option value="Tết">Tết</option>
+                                                </datalist>
+                                            </th>
                                         </tr>
                                     </table>
                                 </div>
