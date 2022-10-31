@@ -34,8 +34,7 @@ const collection = document.getElementsByClassName("songItem");
 for (let i = 1; i < collection.length; i++) {
     var a = {
         id: i,
-        songName:` ${collection[i].getElementsByTagName('h5')[0].innerHTML} <br>
-        <div class="subtitle"> ${collection[i].getElementsByClassName('subtitle')[0].innerHTML}  </div>`,
+        songName:` ${collection[i].getElementsByTagName('h5')[0].innerHTML} `,
         poster: `${collection[i].getElementsByTagName('img')[0].getAttribute('alt')}`,
         file: `${collection[i].getElementsByTagName('i')[0].getAttribute('File')}`
     };
