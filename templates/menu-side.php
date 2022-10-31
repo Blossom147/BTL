@@ -16,22 +16,21 @@
                 echo "Không có bản ghi nào";
             }
             else{
-                $i = 0;
+                $i = 1;
                 while($row = mysqli_fetch_assoc($result)){
-                $i++;
             
         ?>
             <li class="songItem">
                 <span><?php echo  $i ?></span>
-                <img src="/BTL/images/<?php echo $row['Anh'] ?>.jpg" alt="<?php echo $row['TenBaiHat'] ?>">
+                <img src="/BTL/images/<?php echo $row['Anh'] ?>.jpg" Image= "<?php echo $row['Anh'] ?>" alt="<?php echo $row['TenBaiHat'] ?>">
                 <h5>
                     <?php echo  $row['TenBaiHat'] ?>
                     <div class="subtitle"><?php echo  $row['Ten'] ?></div>
                 </h5>
                     <i class="bi playListPlay bi-play-circle-fill" id = "<?php echo  $i ?>" File="<?php echo  $row['File'] ?>"></i>
             </li>
-       
-        <?php 
+            
+        <?php $i++;
                 }
                     }?>
         </div>

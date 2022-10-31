@@ -31,11 +31,11 @@ const songs = [
 ]
 
 const collection = document.getElementsByClassName("songItem");
-for (let i = 1; i < collection.length; i++) {
+for (let i = 0; i < collection.length; i++) {
     var a = {
-        id: i,
+        id: i+1,
         songName:` ${collection[i].getElementsByTagName('h5')[0].innerHTML} `,
-        poster: `${collection[i].getElementsByTagName('img')[0].getAttribute('alt')}`,
+        poster: `${collection[i].getElementsByTagName('img')[0].getAttribute('Image')}`,
         file: `${collection[i].getElementsByTagName('i')[0].getAttribute('File')}`
     };
     songs.push(a);
@@ -79,20 +79,20 @@ const makeAllBackgrounds = () =>{
     })
 }
 
-let index = 0;
+let index = 1;
 let poster_master_play = document.getElementById('poster_master_play');
 let download = document.getElementById('download');
 let title = document.getElementById('title');
 Array.from(document.getElementsByClassName('playListPlay')).forEach((element)=>{
     element.addEventListener('click', (e)=>{
-        index = e.target.id;
-        console.log(index);
+        index = e.target.id - 1;
+        // console.log(songs[index].poster); đã check
         music.src = `/BTL/audio/${songs[index].file}.mp3`;
         poster_master_play.src =`/BTL/images/${songs[index].poster}.jpg`;
         music.play();
         download.href = `/BTL/audio/${songs[index].file}.mp3`;
         let song_title = songs.filter((ele)=>{
-            return ele.id == index;
+            return ele.id == index+1;
         });
         song_title.forEach(ele =>{
             let {songName} = ele;
@@ -108,7 +108,7 @@ Array.from(document.getElementsByClassName('playListPlay')).forEach((element)=>{
             wave.classList.remove('active2');
         });
         makeAllBackgrounds();
-        Array.from(document.getElementsByClassName('songItem'))[`${index-1}`].style.background = "rgb(105, 105, 170, .1)";
+        Array.from(document.getElementsByClassName('songItem'))[`${index}`].style.background = "rgb(105, 105, 170, .1)";
         makeAllPlays();
         e.target.classList.remove('bi-play-circle-fill');
         e.target.classList.add('bi-pause-circle-fill');
@@ -179,26 +179,27 @@ let next = document.getElementById('next');
 
 back.addEventListener('click', ()=>{
     index -= 1;
-    if (index < 1) {
-        index = Array.from(document.getElementsByClassName('songItem')).length;
+    if (index < 0) {
+        index = songs.length;
+        
     }
     music.src = `/BTL/audio/${songs[index].file}.mp3`;
+    console.log(`${songs[index].file}`);
     poster_master_play.src =`/BTL/images/${songs[index].poster}.jpg`;
     music.play();
     let song_title = songs.filter((ele)=>{
-        return ele.id == index;
+        return ele.id == index+1;
     })
 
     song_title.forEach(ele =>{
         let {songName} = ele;
         title.innerHTML = songName;
     })
-    makeAllPlays()
-
-    document.getElementById(`${index}`).classList.remove('bi-play-fill');
-    document.getElementById(`${index}`).classList.add('bi-pause-fill');
+    makeAllPlays();
+    // document.getElementById(`${index}`).classList.remove('bi-play-fill');
+    // document.getElementById(`${index}`).classList.add('bi-pause-fill');
     makeAllBackgrounds();
-    Array.from(document.getElementsByClassName('songItem'))[`${index-1}`].style.background = "rgb(105, 105, 170, .1)";
+    Array.from(document.getElementsByClassName('songItem'))[`${index}`].style.background = "rgb(105, 105, 170, .1)";
     
 })
 
@@ -206,13 +207,13 @@ next.addEventListener('click', ()=>{
     index -= 0;
     index += 1;
     if (index > Array.from(document.getElementsByClassName('songItem')).length) {
-        index = 1;
-        }
+        index = 0;
+    }
     music.src = `/BTL/audio/${songs[index].file}.mp3`;
     poster_master_play.src =`/BTL/images/${songs[index].poster}.jpg`;
     music.play();
     let song_title = songs.filter((ele)=>{
-        return ele.id == index;
+        return ele.id == index+1;
     })
 
     song_title.forEach(ele =>{
@@ -223,7 +224,7 @@ next.addEventListener('click', ()=>{
     document.getElementById(`${index}`).classList.remove('bi-play-fill');
     document.getElementById(`${index}`).classList.add('bi-pause-fill');
     makeAllBackgrounds();
-    Array.from(document.getElementsByClassName('songItem'))[`${index-1}`].style.background = "rgb(105, 105, 170, .1)";
+    Array.from(document.getElementsByClassName('songItem'))[`${index}`].style.background = "rgb(105, 105, 170, .1)";
     
 })
 
@@ -258,7 +259,7 @@ shuffle.addEventListener('click', ()=>{
 
 const next_music = () =>{
     if (index == songs.length) {
-        index = 1
+        index = 0
     }else{
         index++;
     }
