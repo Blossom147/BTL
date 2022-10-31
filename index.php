@@ -29,7 +29,7 @@
 
 <!-- footer -->
 
-<?php require_once "$rootDir/BTL/templates/foot.php"?>
+<?php require_once "$rootDir/BTL/includes/foot.php"?>
 
 <!-- footer -->
 

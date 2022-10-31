@@ -84,10 +84,10 @@ let title = document.getElementById('title');
 Array.from(document.getElementsByClassName('playListPlay')).forEach((element)=>{
     element.addEventListener('click', (e)=>{
         index = e.target.id;
-        music.src = `/audio/${index}.mp3`;
+        music.src = `/BTL/audio/${index}.mp3`;
         poster_master_play.src =`/BTL/img/${index}.jpg`;
         music.play();
-        download.href = `/BTL/audio/${index}.mp3`;
+        download.href = `/BTL/BTL/audio/${index}.mp3`;
         let song_title = songs.filter((ele)=>{
             return ele.id == index;
         });
@@ -179,7 +179,7 @@ back.addEventListener('click', ()=>{
     if (index < 1) {
         index = Array.from(document.getElementsByClassName('songItem')).length;
     }
-    music.src = `/BTL/audio/${index}.mp3`;
+    music.src = `/BTL/BTL/audio/${index}.mp3`;
     poster_master_play.src =`/BTL/img/${index}.jpg`;
     music.play();
     let song_title = songs.filter((ele)=>{
@@ -205,7 +205,7 @@ next.addEventListener('click', ()=>{
     if (index > Array.from(document.getElementsByClassName('songItem')).length) {
         index = 1;
         }
-    music.src = `/BTL/audio/${index}.mp3`;
+    music.src = `/BTL/BTL/audio/${index}.mp3`;
     poster_master_play.src =`/BTL/img/${index}.jpg`;
     music.play();
     let song_title = songs.filter((ele)=>{
@@ -259,7 +259,7 @@ const next_music = () =>{
     }else{
         index++;
     }
-    music.src = `/BTL/audio/${index}.mp3`;
+    music.src = `/BTL/BTL/audio/${index}.mp3`;
     poster_master_play.src =`/BTL/img/${index}.jpg`;
     music.play();
     masterPlay.classList.remove('bi-play-fill');
@@ -289,7 +289,7 @@ const next_music = () =>{
 
 const repeat_music = () =>{
     index;
-    music.src = `/BTL/audio/${index}.mp3`;
+    music.src = `/BTL/BTL/audio/${index}.mp3`;
     poster_master_play.src =`/BTL/img/${index}.jpg`;
     music.play();
     masterPlay.classList.remove('bi-play-fill');
@@ -323,7 +323,7 @@ const random_music = () =>{
     }else{
         index = Math.floor((Math.random() * songs.length) +1);
     }
-    music.src = `/BTL/audio/${index}.mp3`;
+    music.src = `/BTL/BTL/audio/${index}.mp3`;
     poster_master_play.src =`/BTL/img/${index}.jpg`;
     music.play();
     masterPlay.classList.remove('bi-play-fill');
@@ -374,13 +374,13 @@ x.addEventListener('click', function(){
     x.style.color="#f8104e";
 })
 
-//respoveive
-let menu_list_active_button = document.getElementById('menu_list_active_button');
-let menu_side = document.getElementsByClassName('menu_side')[0];
-menu_list_active_button.addEventListener('click', ()=>{
-    menu_side.style.transform= "unset";
-    menu_list_active_button.style.opacity = 0;
-})
+// //respoveive
+// let menu_list_active_button = document.getElementById('menu_list_active_button');
+// let menu_side = document.getElementsByClassName('menu_side')[0];
+// menu_list_active_button.addEventListener('click', ()=>{
+//     menu_side.style.transform= "unset";
+//     menu_list_active_button.style.opacity = 0;
+// })
 
 let close1 = document.getElementsByClassName('close1')[0];
 close1.addEventListener('click', ()=>{
