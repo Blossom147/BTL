@@ -28,7 +28,7 @@
                     <?php echo  $row['TenBaiHat'] ?>
                     <div class="subtitle"><?php echo  $row['Ten'] ?></div>
                 </h5>
-                    <i class="bi playListPlay bi-play-circle-fill" id="<?php echo  $row['File'] ?>"></i>
+                    <i class="bi playListPlay bi-play-circle-fill" id = "<?php echo  $i ?>" File="<?php echo  $row['File'] ?>"></i>
             </li>
        
         <?php 

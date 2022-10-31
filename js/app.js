@@ -3,12 +3,12 @@ let left_scroll = document.getElementById('left_scroll');
 let right_scroll = document.getElementById('right_scroll');
 let pop_song = document.getElementsByClassName('pop_song')[0];
 
-left_scroll.addEventListener('click', ()=>{
-    pop_song.scrollLeft -= 330;
-})
-right_scroll.addEventListener('click', ()=>{
-    pop_song.scrollLeft += 330;
-})
+// left_scroll.addEventListener('click', ()=>{
+//     pop_song.scrollLeft -= 330;
+// })
+// right_scroll.addEventListener('click', ()=>{
+//     pop_song.scrollLeft += 330;
+// })
 // Scroll Popular Art
 let left_scrolls = document.getElementById('left_scrolls');
 let right_scrolls = document.getElementById('right_scrolls');
@@ -31,13 +31,13 @@ const songs = [
 ]
 
 const collection = document.getElementsByClassName("songItem");
-for (let i = 0; i < collection.length; i++) {
+for (let i = 1; i < collection.length; i++) {
     var a = {
-        id: collection[i].getAttribute("id"),
+        id: i,
         songName:` ${collection[i].getElementsByTagName('h5')[0].innerHTML} <br>
         <div class="subtitle"> ${collection[i].getElementsByClassName('subtitle')[0].innerHTML}  </div>`,
         poster: `${collection[i].getElementsByTagName('img')[0].getAttribute('alt')}`,
-        file: `${collection[i].getElementsByTagName('i')[0].getAttribute('id')}`
+        file: `${collection[i].getElementsByTagName('i')[0].getAttribute('File')}`
     };
     songs.push(a);
   }
@@ -87,10 +87,11 @@ let title = document.getElementById('title');
 Array.from(document.getElementsByClassName('playListPlay')).forEach((element)=>{
     element.addEventListener('click', (e)=>{
         index = e.target.id;
-        music.src = `/BTL/audio/${index}.mp3`;
-        poster_master_play.src =`/BTL/images/${index}.jpg`;
+        console.log(index);
+        music.src = `/BTL/audio/${songs[index].file}.mp3`;
+        poster_master_play.src =`/BTL/images/${songs[index].poster}.jpg`;
         music.play();
-        download.href = `/BTL/audio/${index}.mp3`;
+        download.href = `/BTL/audio/${songs[index].file}.mp3`;
         let song_title = songs.filter((ele)=>{
             return ele.id == index;
         });
@@ -182,8 +183,8 @@ back.addEventListener('click', ()=>{
     if (index < 1) {
         index = Array.from(document.getElementsByClassName('songItem')).length;
     }
-    music.src = `/BTL/audio/${index}.mp3`;
-    poster_master_play.src =`/BTL/images/${index}.jpg`;
+    music.src = `/BTL/audio/${songs[index].file}.mp3`;
+    poster_master_play.src =`/BTL/images/${songs[index].poster}.jpg`;
     music.play();
     let song_title = songs.filter((ele)=>{
         return ele.id == index;
@@ -208,8 +209,8 @@ next.addEventListener('click', ()=>{
     if (index > Array.from(document.getElementsByClassName('songItem')).length) {
         index = 1;
         }
-    music.src = `/BTL/audio/${index}.mp3`;
-    poster_master_play.src =`/BTL/images/${index}.jpg`;
+    music.src = `/BTL/audio/${songs[index].file}.mp3`;
+    poster_master_play.src =`/BTL/images/${songs[index].poster}.jpg`;
     music.play();
     let song_title = songs.filter((ele)=>{
         return ele.id == index;
@@ -262,12 +263,12 @@ const next_music = () =>{
     }else{
         index++;
     }
-    music.src = `/BTL/audio/${index}.mp3`;
-    poster_master_play.src =`/BTL/images/${index}.jpg`;
+    music.src = `/BTL/audio/${songs[index].file}.mp3`;
+    poster_master_play.src =`/BTL/images/${songs[index].poster}.jpg`;
     music.play();
     masterPlay.classList.remove('bi-play-fill');
     masterPlay.classList.add('bi-pause-fill');
-    download.href = `/BTL/audio/${index}.mp3`;
+    download.href = `/BTL/audio/${songs[index].file}.mp3`;
     let song_title = songs.filter((ele)=>{
         return ele.id == index;
     });
@@ -292,12 +293,12 @@ const next_music = () =>{
 
 const repeat_music = () =>{
     index;
-    music.src = `/BTL/audio/${index}.mp3`;
-    poster_master_play.src =`/BTL/images/${index}.jpg`;
+    music.src = `/BTL/audio/${songs[index].file}.mp3`;
+    poster_master_play.src =`/BTL/images/${songs[index].poster}.jpg`;
     music.play();
     masterPlay.classList.remove('bi-play-fill');
     masterPlay.classList.add('bi-pause-fill');
-    download.href = `/BTL/audio/${index}.mp3`;
+    download.href = `/BTL/audio/${songs[index].file}.mp3`;
     let song_title = songs.filter((ele)=>{
         return ele.id == index;
     });
@@ -326,12 +327,12 @@ const random_music = () =>{
     }else{
         index = Math.floor((Math.random() * songs.length) +1);
     }
-    music.src = `/BTL/audio/${index}.mp3`;
-    poster_master_play.src =`/BTL/images/${index}.jpg`;
+    music.src = `/BTL/audio/${songs[index].file}.mp3`;
+    poster_master_play.src =`/BTL/images/${songs[index].poster}.jpg`;
     music.play();
     masterPlay.classList.remove('bi-play-fill');
     masterPlay.classList.add('bi-pause-fill');
-    download.href = `/BTL/audio/${index}.mp3`;
+    download.href = `/BTL/audio/${songs[index].file}.mp3`;
     let song_title = songs.filter((ele)=>{
         return ele.id == index;
     });
@@ -385,8 +386,8 @@ x.addEventListener('click', function(){
 //     menu_list_active_button.style.opacity = 0;
 // })
 
-let close1 = document.getElementsByClassName('close1')[0];
-close1.addEventListener('click', ()=>{
-    menu_side.style.transform = "translateX(-100%)";
-    menu_list_active_button.style.opacity = 1;
-})
+// let close1 = document.getElementsByClassName('close1')[0];
+// close1.addEventListener('click', ()=>{
+//     menu_side.style.transform = "translateX(-100%)";
+//     menu_list_active_button.style.opacity = 1;
+// })

@@ -25,6 +25,7 @@
                 <button>FOLLOW</button>
             </div>
         </div>
+        <!-- 
         <div class="popular_song">
             <div class="h4">
                 <h4>Popular Song</h4>
@@ -48,7 +49,7 @@
                     <div class="img_play">
                         <img src="/BTL/images/1.jpg" alt="alan">
                         <i class="bi playListPlay bi-play-circle-fill" id="8"></i>
-                        <!-- change All id  -->
+                       
                     </div>
                     <h5>On My Way
                         <br>
@@ -126,7 +127,7 @@
                     </h5>
                 </li>
             </div>
-        </div>
+        </div> change All id  -->
         <div class="popular_art">
             <div class="h4">
                 <h4>Popular Artists</h4>
