@@ -4,9 +4,9 @@
             <div class="wave1"></div>
             <div class="wave1"></div>
         </div>
-        <img src="/BTL/images/26.jpg" alt="Alan" id="poster_master_play">
-        <h5 id="title">Vande Mataram<br>
-            <div class="subtitle">Bankim Chandra</div>
+        <img src="/BTL/images/1.jpg" alt="Alan" id="poster_master_play">
+        <h5 id="title">Faded<br>
+            <div class="subtitle">Alan Walker</div>
         </h5>
         <div class="icon">
             <i class="bi shuffle bi-music-note-beamed">next</i>
