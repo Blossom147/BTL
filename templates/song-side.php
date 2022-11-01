@@ -1,8 +1,7 @@
 <div class="song_side">
         <nav>
             <ul>
-                <li>Home<span></span></li>
-                <li>Chill</li>
+                <a href="/BTL/"><li>Home<span></span></li></a>
                 <li>Page</li>
             </ul>
             <div class="search">
@@ -14,7 +13,7 @@
             </div>
         </nav>
         <div class="content">
-            <h1>Alen Walker-Fade</h1>
+            <h1>Alan Walker</h1>
             <p>
                 You were the shadow to my light Did you feel us Another start You fade 
                 <br>
@@ -25,109 +24,43 @@
                 <button>FOLLOW</button>
             </div>
         </div>
-        <!-- 
+        
         <div class="popular_song">
             <div class="h4">
-                <h4>Popular Song</h4>
+                <h4>Topic</h4>
                 <div class="btn_s">
                     <i id="left_scroll" class="bi bi-arrow-left-short"></i>
                     <i id="right_scroll" class="bi bi-arrow-right-short"></i>
                 </div>
             </div>
             <div class="pop_song">
-                <li class="songItem">
+            <?php 
+            $query =  "SELECT * FROM chude";
+            $result = mysqli_query($link, $query);
+            if(!mysqli_num_rows($result)){
+                echo "Không có bản ghi nào";
+            }
+            else{
+                $i = 1;
+                while($row = mysqli_fetch_assoc($result)){
+            
+            ?>
+            <a style="text-decoration: none;  color: white;" href="/BTL/index.php?catID=<?php echo $row['ID']?>">
+                <li class="categoryItem" id = <?php echo $row['ID']?>>
                     <div class="img_play">
-                        <img src="/BTL/images/1.jpg" alt="alan">
-                        <i class="bi playListPlay bi-play-circle-fill" id="7"></i>
+                        
+                        <img src="/BTL/images/<?php echo $row['Anh']?>.jpg" alt="alan">
                     </div>
-                    <h5>On My Way
-                        <br>
-                        <div class="subtitle">Alan Walker</div>
+                    <h5><?php echo $row['TenChuDe']?>
                     </h5>
                 </li>
-                <li class="songItem">
-                    <div class="img_play">
-                        <img src="/BTL/images/1.jpg" alt="alan">
-                        <i class="bi playListPlay bi-play-circle-fill" id="8"></i>
-                       
-                    </div>
-                    <h5>On My Way
-                        <br>
-                        <div class="subtitle">Alan Walker</div>
-                    </h5>
-                </li>
-                <li class="songItem">
-                    <div class="img_play">
-                        <img src="/BTL/images/1.jpg" alt="alan">
-                        <i class="bi playListPlay bi-play-circle-fill" id="9"></i>
-                    </div>
-                    <h5>On My Way
-                        <br>
-                        <div class="subtitle">Alan Walker</div>
-                    </h5>
-                </li>
-                <li class="songItem">
-                    <div class="img_play">
-                        <img src="/BTL/images/1.jpg" alt="alan">
-                        <i class="bi playListPlay bi-play-circle-fill" id="10"></i>
-                    </div>
-                    <h5>On My Way
-                        <br>
-                        <div class="subtitle">Alan Walker</div>
-                    </h5>
-                </li>
-                <li class="songItem">
-                    <div class="img_play">
-                        <img src="/BTL/images/1.jpg" alt="alan">
-                        <i class="bi playListPlay bi-play-circle-fill" id="11"></i>
-                    </div>
-                    <h5>On My Way
-                        <br>
-                        <div class="subtitle">Alan Walker</div>
-                    </h5>
-                </li>
-                <li class="songItem">
-                    <div class="img_play">
-                        <img src="/BTL/images/1.jpg" alt="alan">
-                        <i class="bi playListPlay bi-play-circle-fill" id="12"></i>
-                    </div>
-                    <h5>On My Way
-                        <br>
-                        <div class="subtitle">Alan Walker</div>
-                    </h5>
-                </li>
-                <li class="songItem">
-                    <div class="img_play">
-                        <img src="/BTL/images/1.jpg" alt="alan">
-                        <i class="bi playListPlay bi-play-circle-fill" id="13"></i>
-                    </div>
-                    <h5>On My Way
-                        <br>
-                        <div class="subtitle">Alan Walker</div>
-                    </h5>
-                </li>
-                <li class="songItem">
-                    <div class="img_play">
-                        <img src="/BTL/images/1.jpg" alt="alan">
-                        <i class="bi playListPlay bi-play-circle-fill" id="14"></i>
-                    </div>
-                    <h5>On My Way
-                        <br>
-                        <div class="subtitle">Alan Walker</div>
-                    </h5>
-                </li>
-                <li class="songItem">
-                    <div class="img_play">
-                        <img src="/BTL/images/1.jpg" alt="alan">
-                        <i class="bi playListPlay bi-play-circle-fill" id="15"></i>
-                    </div>
-                    <h5>On My Way
-                        <br>
-                        <div class="subtitle">Alan Walker</div>
-                    </h5>
-                </li>
+            </a>
+            <?php $i++;
+                }
+            }?>
             </div>
-        </div> change All id  -->
+        </div> 
+      
         <div class="popular_art">
             <div class="h4">
                 <h4>Popular Artists</h4>
@@ -137,40 +70,23 @@
                 </div>
             </div>
             <div class="item">
+            <?php 
+            $query =  "SELECT * FROM casi";
+            $result = mysqli_query($link, $query);
+            if(!mysqli_num_rows($result)){
+                echo "Không có bản ghi nào";
+            }
+            else{
+                while($row = mysqli_fetch_assoc($result)){
+            ?>
+                <a href="/BTL/index.php?artID=<?php echo $row['ID']?>">
                 <li>
-                    <img src="/BTL/images/arjit.jpg" alt="Arjit Singh" title="Arjit Singh">
+                    <img src="/BTL/images/<?php echo $row['Anh']?>.jpg" alt="<?php echo $row['Ten']?>" title="<?php echo $row['Ten']?>">
                 </li>
-                <li>
-                    <img src="/BTL/images/alan.jpg" alt="Alan Walker" title="Alan Walker">
-                </li>
-                <li>
-                    <img src="/BTL/images/atif.jpg" alt="Atif Aslam" title="Atif Aslam">
-                </li>
-                <li>
-                    <img src="/BTL/images/guru.jpg" alt="Guru RAndawa" title="Guru Randawa">
-                </li>
-                <li>
-                    <img src="/BTL/images/dhvani.jpg" alt="Dhvani" title="Dhvani">
-                </li>
-                <li>
-                    <img src="/BTL/images/Diljit_Dosanjh.jpg" alt="Diljit Dosanjh" title="Diljit Dosanjh">
-                </li>
-                <li>
-                    <img src="/BTL/images/jubin Nautiyal.jpg" alt="Jubin Nautiyal" title="Jubin Nautiyal">
-                </li>
-                <li>
-                    <img src="/BTL/images/neha.jpg" alt="Neha Kakker" title="Neha Kakker">
-                </li>
-                <li>
-                    <img src="/BTL/images/justin-bieber-lede.jpg" alt="Justin Bieber" title="Justin Bieber">
-                </li>
-                <li>
-                    <img src="/BTL/images/honey.jpg" alt="Honey Singh" title="Honey Singh">
-                </li>
-                <li>
-                    <img src="/BTL/images/akhil.jpg" alt="Akhil" title="Akhil">
-                </li>
-                <!-- change all img  -->
+                </a>
+            <?php 
+                }
+            }?>
             </div>
         </div>
     </div>

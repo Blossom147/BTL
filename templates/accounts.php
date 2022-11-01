@@ -91,7 +91,7 @@
             echo
             '   
                 
-                <a href="' . $_DOMAIN . 'templates/accounts/add" class="btn btn-default">
+                <a class="btn btn-default">
                     <span class="glyphicon glyphicon-plus"></span> Thêm
                 </a> 
                 <a href="' . $_DOMAIN . 'templates/accounts.php" class="btn btn-default">
