@@ -14,7 +14,7 @@
                 $query =  "Select TenBaiHat, Ten, baihat.Anh, File, LuotThich from baihat inner join casi where baihat.IDCasi = casi.ID and IDChuDe = {$catID}";
             }elseif(isset($_GET['artID'])){
                 $artID = $_GET['artID'];
-                $query =  "Select TenBaiHat, baihat.Anh, File, LuotThich from baihat where baihat.IDCasi = ${artID}";
+                $query =  "Select TenBaiHat, baihat.Anh, casi.Ten, File, LuotThich from baihat inner join casi where casi.id = baihat.IDCasi and baihat.IDCasi = ${artID}";
             }
             else{           
                  $query =  "Select TenBaiHat, Ten, baihat.Anh, File, LuotThich from baihat inner join casi where baihat.IDCasi = casi.ID";
