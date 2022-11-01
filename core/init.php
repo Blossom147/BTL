@@ -1,9 +1,9 @@
 <?php
-
+$rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
 // Require các thư viện PHP
-require_once 'classes/DB.php';
-require_once 'classes/Session.php';
-require_once 'classes/Functions.php';
+require_once "$rootDir/BTL/classes/DB.php";
+require_once "$rootDir/BTL/classes/Session.php";
+require_once "$rootDir/BTL/classes/Functions.php";
 
 // Kết nối database
 $db = new DB();
@@ -35,7 +35,7 @@ else
 if ($user)
 {
 	// Lấy dữ liệu tài khoản
-	$sql_get_data_user = "SELECT * FROM accounts WHERE username = '$user'";
+	$sql_get_data_user = "SELECT * FROM taikhoan WHERE TenTaiKhoan = '$user'";
 	if ($db->num_rows($sql_get_data_user))
 	{
 		$data_user = $db->fetch_assoc($sql_get_data_user, 1);

@@ -6,19 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>BARD</title>
-    <link href="../bootstrap/plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../bootstrap/plugins/chartist/css/chartist.min.css">
-    <link rel="stylesheet" href="../bootstrap/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
-    <link href="../bootstrap/plugins/easy-pie-chart/style.css" rel="stylesheet">
-    <link href="../bootstrap/plugins/typeahead/style.css" rel="stylesheet">
+    <link href="../plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
+    <link href="../plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="../icons/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../plugins/chartist/css/chartist.min.css">
+    <link rel="stylesheet" href="../plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
+    <link href="../css/admin/style.css" rel="stylesheet">
+    
+    <!-- Liên kết thư viện jQuery -->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.form.min.js"></script>
 
 </head>
 
 <body>
-
-    <!--*******************Preloader start********************-->
-    <div id="preloader">
+<!--*******************Preloader start********************-->
+<div id="preloader">
         <div class="loader">
             <svg class="circular" viewBox="25 25 50 50">
                 <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
@@ -35,8 +41,8 @@
                     <b class="logo-abbr" style="color:black; font-size:30px; ">B</b>
                     <span class="logo-compact"><img src="../images/logo-compact.png" alt=""></span>
                     <span class="brand-title">
-                        <!-- <img src="images/logo-text.png" alt=""> -->
-                        <p style="color: white ; font-size: 30px;" >BARD</p>
+                        <!-- <img src="../images/logo-text.png" alt=""> -->
+                        <p style="color: white ; font-size: 30px;" >Admin</p>
                     </span>
                 </a>
             </div>
@@ -221,196 +227,7 @@
         </div>
         <!--********************************** Header end ti-comment-alt***********************************-->
         <!--**********************************Sidebar start***********************************-->
-        <div class="nk-sidebar">           
-            <div class="nk-nav-scroll">
-                <ul class="metismenu" id="menu">
-                    <li class="nav-label">Dashboard</li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./index.html">Home One</a></li>
-                        </ul>
-                    </li>
-                    <li class="mega-menu mega-menu-sm">
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Layouts</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./layout-blank.html">Blank</a></li>
-                            <li><a href="./layout-one-column.html">One Column</a></li>
-                            <li><a href="./layout-two-column.html">Two column</a></li>
-                            <li><a href="./layout-compact-nav.html">Compact Nav</a></li>
-                            <li><a href="./layout-vertical.html">Vertical</a></li>
-                            <li><a href="./layout-horizontal.html">Horizontal</a></li>
-                            <li><a href="./layout-boxed.html">Boxed</a></li>
-                            <li><a href="./layout-wide.html">Wide</a></li>                           
-                            <li><a href="./layout-fixed-header.html">Fixed Header</a></li>
-                            <li><a href="layout-fixed-sidebar.html">Fixed Sidebar</a></li>
-                        </ul>
-                    </li>                   
-                    <li class="nav-label">Table</li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-menu menu-icon"></i><span class="nav-text">Table</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./BaiHat.html" aria-expanded="false">Bài Hát</a></li>
-                            <li><a href="./TaiKhoan.html" aria-expanded="false">Tài Khoản</a></li>
-                            <li><a href="./CaSi.html" aria-expanded="false">Ca Sĩ</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-label">Pages</li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-notebook menu-icon"></i><span class="nav-text">Pages</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="./page-login.html">Login</a></li>
-                            <li><a href="./page-register.html">Register</a></li>
-                            <li><a href="./page-lock.html">Lock Screen</a></li>
-                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Error</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="./page-error-404.html">Error 404</a></li>
-                                    <li><a href="./page-error-403.html">Error 403</a></li>
-                                    <li><a href="./page-error-400.html">Error 400</a></li>
-                                    <li><a href="./page-error-500.html">Error 500</a></li>
-                                    <li><a href="./page-error-503.html">Error 503</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <?php require_once "$rootDir/BTL/templates/sidebar-manager.php"?>
         <!--**********************************Sidebar end ***********************************-->
-        <!--**********************************Content body start***********************************-->
-        <div class="content-body">
-            <div class="container-fluid mt-3">               
-                <div class="row">
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="card">
-                                <div class="social-graph-wrapper widget-facebook">
-                                    <span class="s-icon"><i class="fa fa-facebook"></i></span>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6 border-right">
-                                        <div class="pt-3 pb-3 pl-0 pr-0 text-center">
-                                            <h4 class="m-1">89k</h4>
-                                            <p class="m-0">Friends</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="pt-3 pb-3 pl-0 pr-0 text-center">
-                                            <h4 class="m-1">119k</h4>
-                                            <p class="m-0">Followers</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="card">
-                                <div class="social-graph-wrapper widget-linkedin">
-                                    <span class="s-icon"><i class="fa fa-linkedin"></i></span>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6 border-right">
-                                        <div class="pt-3 pb-3 pl-0 pr-0 text-center">
-                                            <h4 class="m-1">89k</h4>
-                                            <p class="m-0">Friends</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="pt-3 pb-3 pl-0 pr-0 text-center">
-                                            <h4 class="m-1">119k</h4>
-                                            <p class="m-0">Followers</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="card">
-                                <div class="social-graph-wrapper widget-googleplus">
-                                    <span class="s-icon"><i class="fa fa-google-plus"></i></span>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6 border-right">
-                                        <div class="pt-3 pb-3 pl-0 pr-0 text-center">
-                                            <h4 class="m-1">89k</h4>
-                                            <p class="m-0">Friends</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="pt-3 pb-3 pl-0 pr-0 text-center">
-                                            <h4 class="m-1">119k</h4>
-                                            <p class="m-0">Followers</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="card">
-                                <div class="social-graph-wrapper widget-twitter">
-                                    <span class="s-icon"><i class="fa fa-twitter"></i></span>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6 border-right">
-                                        <div class="pt-3 pb-3 pl-0 pr-0 text-center">
-                                            <h4 class="m-1">89k</h4>
-                                            <p class="m-0">Friends</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="pt-3 pb-3 pl-0 pr-0 text-center">
-                                            <h4 class="m-1">119k</h4>
-                                            <p class="m-0">Followers</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-            </div>
-            <!-- #/ container -->
-        </div>
-        <!--**********************************Content body end***********************************-->       
-        <!--**********************************Footer start***********************************-->
-        <div class="footer">
-            <div class="copyright">
-                <p>Copyright &copy; Designed & Developed by <a href="https://themeforest.net/user/quixlab">Quixlab</a> 2018</p>
-            </div>
-        </div>
-        <!--**********************************Footer end***********************************-->
-    </div>
-    <!--**********************************Main wrapper end***********************************-->
-    <!--**********************************Scripts***********************************-->
-    <script src="../bootstrap/plugins/common/common.min.js"></script>
-    <script src="../js/custom.min.js"></script>
-    <script src="../js/settings.js"></script>
-    <script src="../js/gleek.js"></script>
-    <script src="../js/styleSwitcher.js"></script>
-    <!-- Chartjs -->
-    <script src="../bootstrap/plugins/chart.js/Chart.bundle.min.js"></script>
-    <!-- Circle progress -->
-    <script src="../bootstrap/plugins/circle-progress/circle-progress.min.js"></script>
-    <!-- Datamap -->
-    <script src="../bootstrap/plugins/d3v3/index.js"></script>
-    <script src="../bootstrap/plugins/topojson/topojson.min.js"></script>
-    <script src="../bootstrap/plugins/datamaps/datamaps.world.min.js"></script>
-    <!-- Morrisjs -->
-    <script src="../bootstrap/plugins/raphael/raphael.min.js"></script>
-    <script src="../bootstrap/plugins/morris/morris.min.js"></script>
-    <!-- Pignose Calender -->
-    <script src="../bootstrap/plugins/moment/moment.min.js"></script>
-    <script src="../bootstrap/plugins/pg-calendar/js/pignose.calendar.min.js"></script>
-    <!-- ChartistJS -->
-    <script src="../bootstrap/plugins/chartist/js/chartist.min.js"></script>
-    <script src="../bootstrap/plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
-    <script src="../js/dashboard/dashboard-1.js"></script>
-</body>
-
-</html>
+     
+       
