@@ -58,8 +58,12 @@
 $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
     require_once "$rootDir/BTL/includes/admin/header.php"
 ?>
+<div class="card-body">
         <h2>Tạo mới tài khoản</h2>
 
+       
+        
+        <form method="post">
         <?php
         if(!empty($errorMessage)){
             echo "
@@ -70,8 +74,6 @@ $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
             ";
         }
         ?>
-        
-        <form method="post">
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Tài khoản</label>
                 <div class="col-sm-6">
@@ -125,5 +127,6 @@ $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
         </form>
        
     </div>
+</div>
 </body>
 </html>

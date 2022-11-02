@@ -2,6 +2,7 @@
 $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
     require_once "$rootDir/BTL/includes/admin/header.php"
 ?>
+<div class="card-body">
         <h2>Danh sách tài khoản</h2>
         <a class="btn btn-primary" href="/BTL/PHP/Admin/create.php" role="button">Tạo mới</a>
         <br>
@@ -36,8 +37,8 @@ $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
                             <td>$row[TenNguoiDung]</td>
                             <td>$row[NgaySinh]</td>
                             <td>
-                                <a class = 'btn btn-primary btn-sm' href = '/BTL/PHP/Admin/edit.php?id=$row[ID]'>Edit</a>
-                                <a onclick='return ConfirmDelete();' class = 'btn btn-danger btn-sm' href = '/BTL/PHP/Admin/delete.php?id=$row[ID]'>Delete</a>
+                                <a class = 'btn btn-primary btn-sm' href = '/BTL/PHP/Admin/edit.php?id=$row[ID]'>Sửa</a>
+                                <a onclick='return ConfirmDelete();' class = 'btn btn-danger btn-sm' href = '/BTL/PHP/Admin/delete.php?id=$row[ID]'>Xóa</a>
                             </td>
                             ";
                     }
@@ -46,15 +47,8 @@ $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
             </tbody>
         </table>
     </div>
-    <script>
-function ConfirmDelete(){
-    var x = confirm("Are you sure you want to delete?");
-  if (x)
-      return true;
-  else
-    return false;
-}
-</script>
-
-</body>
-</html>
+</div>
+    <?php 
+$rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
+    require_once "$rootDir/BTL/includes/admin/footter.php"
+?>

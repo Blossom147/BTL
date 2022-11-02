@@ -1,6 +1,5 @@
 <?php 
     $link = new mysqli('localhost', 'root', '', 'webmusic') or die('Kết nối thất bại!!');
-    $id ="";
     $tentaikhoan ="";
     $matkhau ="";
     $tennguoidung ="";
@@ -27,6 +26,7 @@
             header("location: /BTL/PHP/Admin/index.php");
             exit;
         }
+        $id = $row["ID"];
         $tentaikhoan = $row["TenTaiKhoan"];
         $matkhau = $row["MatKhau"];
         $tennguoidung = $row["TenNguoiDung"];
@@ -41,17 +41,22 @@
         $ngaysinh= $_POST["ngaysinh"];
         $anh=$_POST["anh"];
         $isadmin =$_POST["isadmin"];
-
+        $id = $_GET["id"];
         
 
         do{
             if(empty($tentaikhoan) || empty($matkhau) || empty($tennguoidung) || empty($ngaysinh)){
-                $errorMessage =   "All the fields are requied";
+                $errorMessage =   "Bạn chưa điền đủ thông tin";
+                break;
+            }else if ($isadmin != 0 || $isadmin != 1){
+                $errorMessage =   "1 nếu là admin và 0 là thành viên";
                 break;
             }
-
-            $sql = "update taikhoan Set TenTaiKhoan = '$tentaikhoan', MatKhau ='$matkhau', TenNguoiDung='$tennguoidung',IsAdmin='$isadmin',NgaySinh='$ngaysinh' Where ID = '$id'";
-            $result = $link->query($sql);
+            else{
+                $sql = "update taikhoan Set TenTaiKhoan = '$tentaikhoan', MatKhau ='$matkhau', TenNguoiDung='$tennguoidung',IsAdmin='$isadmin',NgaySinh='$ngaysinh' Where ID = '$id'";
+                $result = $link->query($sql);
+            }
+            
 
             if(!$result){
                 $errorMessage = "Không hợp lệ : " .$link->error;
@@ -68,6 +73,7 @@
 $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
     require_once "$rootDir/BTL/includes/admin/header.php"
 ?>
+<div class="card-body">
         <h2>Chỉnh sửa tài khoản</h2>
 
         <?php
@@ -150,5 +156,6 @@ $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
         </form>
        
     </div>
+</div>
 </body>
 </html>
