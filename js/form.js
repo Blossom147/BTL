@@ -1,30 +1,38 @@
-// Thêm tài khoản
-$('#formAddAcc button').on('click', function() {
-    $un_add_acc = $('#un_add_acc').val();
-    $pw_add_acc = $('#pw_add_acc').val();
-    $repw_add_acc = $('#repw_add_acc').val();
- 
-    if ($un_add_acc == '' || $pw_add_acc == '' || $repw_add_acc == '')
-    {
-        $('#formAddAcc .alert').removeClass('hidden');
-        $('#formAddAcc .alert').html('Vui lòng điền đầy đủ thông tin.');
+document.addEventListener("DOMContentLoaded", function(event) {
+   
+    const showNavbar = (toggleId, navId, bodyId, headerId) =>{
+    const toggle = document.getElementById(toggleId),
+    nav = document.getElementById(navId),
+    bodypd = document.getElementById(bodyId),
+    headerpd = document.getElementById(headerId)
+    
+    // Validate that all variables exist
+    if(toggle && nav && bodypd && headerpd){
+    toggle.addEventListener('click', ()=>{
+    // show navbar
+    nav.classList.toggle('show')
+    // change icon
+    toggle.classList.toggle('bx-x')
+    // add padding to body
+    bodypd.classList.toggle('body-pd')
+    // add padding to header
+    headerpd.classList.toggle('body-pd')
+    })
     }
-    else
-    {
-        $.ajax({
-            url : $_DOMAIN + 'accounts.php',
-            type : 'POST',
-            data : {
-                un_add_acc: $un_add_acc,
-                pw_add_acc : $pw_add_acc,
-                repw_add_acc : $repw_add_acc,
-                action : 'add_acc'
-            }, success : function(data) {
-                $('#formAddAcc .alert').html(data);
-            }, error : function() {
-                $('#formAddAcc .alert').removeClass('hidden');
-                $('#formAddAcc .alert').html('Đã có lỗi xảy ra, hãy thử lại.');
-            }  
-        });
     }
-});
+    
+    showNavbar('header-toggle','nav-bar','body-pd','header')
+    
+    /*===== LINK ACTIVE =====*/
+    const linkColor = document.querySelectorAll('.nav_link')
+    
+    function colorLink(){
+    if(linkColor){
+    linkColor.forEach(l=> l.classList.remove('active'))
+    this.classList.add('active')
+    }
+    }
+    linkColor.forEach(l=> l.addEventListener('click', colorLink))
+    
+     // Your code to run since DOM is loaded and ready
+    });

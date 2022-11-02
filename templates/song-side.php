@@ -11,6 +11,7 @@
             </div>
             <div class="user">
                 <a href="login.html" style="text-decoration:none;"><li>Login</li></a>
+                <a href="templates/accounts.php" style="text-decoration:none;"><li>Manager</li></a>
             </div>
         </nav>
         <div class="content">

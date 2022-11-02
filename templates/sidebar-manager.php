@@ -1,7 +1,12 @@
+<?php 
+    $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
+    $_DOMAIN = 'http://localhost/BTL/';
+
+?>
 <div class="nk-sidebar">           
             <div class="nk-nav-scroll">
                 <ul class="metismenu" id="menu">
-                    <li class="nav-label">Dashboard</li>
+                    <!-- <li class="nav-label">Dashboard</li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
@@ -9,8 +14,8 @@
                         <ul aria-expanded="false">
                             <li><a href="./index.html">Home One</a></li>
                         </ul>
-                    </li>
-                    <li class="mega-menu mega-menu-sm">
+                    </li> -->
+                    <!-- <li class="mega-menu mega-menu-sm">
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Layouts</span>
                         </a>
@@ -26,16 +31,28 @@
                             <li><a href="./layout-fixed-header.html">Fixed Header</a></li>
                             <li><a href="layout-fixed-sidebar.html">Fixed Sidebar</a></li>
                         </ul>
-                    </li>                   
+                    </li>                    -->
                     <li class="nav-label">Table</li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="icon-menu menu-icon"></i><span class="nav-text">Table</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="./BaiHat.html" aria-expanded="false">Bài Hát</a></li>
+                            <li>
+                            <a class="list-group-item" href="<?php echo $_DOMAIN; ?>templates/accounts.php">
+                                <span class="glyphicon glyphicon-edit"></span> Tài khoản
+                            </a> 
+                            <a class="list-group-item" href="<?php echo $_DOMAIN; ?>templates/songs.php">
+                                <span class="glyphicon glyphicon-edit"></span> Bài Hát
+                            </a> 
+
+                            <a class="list-group-item" href="<?php echo $_DOMAIN; ?>templates/singer.php">
+                                <span class="glyphicon glyphicon-edit"></span> Ca Sĩ
+                            </a> 
+                            </li>
+                            <!-- <li><a href="./BaiHat.html" aria-expanded="false">Bài Hát</a></li>
                             <li><a href="./accounts.php" aria-expanded="false">Tài Khoản</a></li>
-                            <li><a href="./CaSi.html" aria-expanded="false">Ca Sĩ</a></li>
+                            <li><a href="./CaSi.html" aria-expanded="false">Ca Sĩ</a></li> -->
                         </ul>
                     </li>
                     <li class="nav-label">Pages</li>
