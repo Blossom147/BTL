@@ -30,11 +30,14 @@
                         require_once '../PHP/user.php';
                         session_start();
                         if(isset($_POST['login']) && isset($_POST['username']) && isset($_POST['password'])){
-                            $username = $_POST['username'];
-                            $password = $_POST['password'];
+                            $username =  trim($_POST['username']);
+                            $password =  trim($_POST['password']);
                             $specificChar = '/[\'^£$%&*()}{@#~?><>,|=_+¬-]/';
                             if($username == '' || $password == ''){
                                 echo 'Thông tin không thể để trống';
+                            }
+                            elseif(preg_match('/\s/',$username) || preg_match('/\s/',$password)){
+                                echo 'Thông tin không thể chứa khoảng trống';
                             }
                             elseif(preg_match($specificChar, $username)){
                                 echo 'Trường chứa ký tự không hợp lệ';
@@ -58,7 +61,7 @@
                     ?>
                 
                     <dev class="between_content_check">
-                        <input type="checkbox" name="" id=""><span>Remenber Me.</span>
+                        <input type="checkbox" name="remember" id=""><span>Remenber Me.</span>
                     </dev>
                     <p>Don't have a account yet? <a href="signup.php">Sign Up</a></p>
                 </form>
