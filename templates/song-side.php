@@ -9,7 +9,7 @@
                 <input type="text" placeholder="Search music">
             </div>
             <div class="user">
-                <a href="login.html" style="text-decoration:none;"><li>Login</li></a>
+                <a href="/BTL/templates/login.php" style="text-decoration:none;"><li>Login</li></a>
             </div>
         </nav>
         <div class="content">
