@@ -9,7 +9,9 @@
                 <input type="text" placeholder="Search music">
             </div>
             <div class="user">
-                <a href="/BTL/templates/login.php" style="text-decoration:none;"><li>Login</li></a>
+                <?php $hello = isset($_SESSION['username']) ? $_SESSION['username'] : "Login" ?>
+                <a href="/BTL/templates/login.php" style="text-decoration:none;"><li><?php echo $hello ?></li></a>
+                <a href="templates/accounts.php" style="text-decoration:none;"><li>Manager</li></a>
             </div>
         </nav>
         <div class="content">

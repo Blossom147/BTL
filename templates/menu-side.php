@@ -26,7 +26,7 @@
             }
             else{         
                 defaultQuery:  
-                 $query =  "Select TenBaiHat, Ten, baihat.Anh, File, LuotThich from baihat inner join casi where baihat.IDCasi = casi.ID";
+                 $query =  "Select  TenBaiHat, Ten, baihat.Anh, File, LuotThich from baihat inner join casi where baihat.IDCasi = casi.ID";
             }
             $result = mysqli_query($link, $query);
             if(!mysqli_num_rows($result)){
