@@ -11,13 +11,22 @@
         <?php 
             if(isset($_GET['catID'])) {
                 $catID = $_GET['catID'];
-                $query =  "Select TenBaiHat, Ten, baihat.Anh, File, LuotThich from baihat inner join casi where baihat.IDCasi = casi.ID and IDChuDe = {$catID}";
+                if(!preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $catID))
+                {
+                    $query =  "Select TenBaiHat, Ten, baihat.Anh, File, LuotThich from baihat inner join casi where baihat.IDCasi = casi.ID and IDChuDe = {$catID}";
+                }
+                else goto defaultQuery;
             }elseif(isset($_GET['artID'])){
                 $artID = $_GET['artID'];
-                $query =  "Select TenBaiHat, baihat.Anh, casi.Ten, File, LuotThich from baihat inner join casi where casi.id = baihat.IDCasi and baihat.IDCasi = ${artID}";
+                if(!preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $artID))
+                {
+                    $query =  "Select TenBaiHat, baihat.Anh, casi.Ten, File, LuotThich from baihat inner join casi where casi.id = baihat.IDCasi and baihat.IDCasi = ${artID}";
+                }                
+                else goto defaultQuery;
             }
-            else{           
-                 $query =  "Select TenBaiHat, Ten, baihat.Anh, File, LuotThich from baihat inner join casi where baihat.IDCasi = casi.ID";
+            else{         
+                defaultQuery:  
+                 $query =  "Select  TenBaiHat, Ten, baihat.Anh, File, LuotThich from baihat inner join casi where baihat.IDCasi = casi.ID";
             }
             $result = mysqli_query($link, $query);
             if(!mysqli_num_rows($result)){

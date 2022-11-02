@@ -1,6 +1,7 @@
 <?php 
     $link = new mysqli('localhost', 'root', '', 'webmusic') or die('Kết nối thất bại!!');
     mysqli_query($link, 'SET NAMES UTF8');
+    session_start();
 ?>
 
 <!-- head -->
