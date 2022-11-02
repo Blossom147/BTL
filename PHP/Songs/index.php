@@ -71,8 +71,8 @@ $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
                     <td>$row[File]</td>
                     <td>$row[LuotThich]</td>
                     <td>
-                        <a class = 'btn btn-primary btn-sm' href = '/BTL/PHP/Admin/edit.php?id=$row[ID]'>Sửa</a>
-                        <a onclick='return ConfirmDelete();' class = 'btn btn-danger btn-sm' href = '/BTL/PHP/Admin/delete.php?id=$row[ID]'>Xóa</a>
+                        <a class = 'btn btn-primary btn-sm' href = '/BTL/PHP/Songs/edit.php?id=$row[ID]'>Sửa</a>
+                        <a onclick='return ConfirmDelete();' class = 'btn btn-danger btn-sm' href = '/BTL/PHP/Songs/delete.php?id=$row[ID]'>Xóa</a>
                     </td>
                     ";
             }
