@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 01, 2022 at 05:48 PM
+-- Generation Time: Nov 03, 2022 at 01:29 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -35,6 +35,13 @@ CREATE TABLE `album` (
   `NgayPhatHanh` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `album`
+--
+
+INSERT INTO `album` (`ID`, `TenAlbum`, `MotaAlbum`, `Anh`, `NgayPhatHanh`) VALUES
+(1, 'Fade Away', NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -58,7 +65,7 @@ CREATE TABLE `baihat` (
 --
 
 INSERT INTO `baihat` (`ID`, `TenBaiHat`, `Anh`, `File`, `LuotThich`, `IDAlbum`, `IDChuDe`, `IDTheLoai`, `IDCasi`) VALUES
-(8, 'On My Way', '1', 'On_My_Way', 0, NULL, 1, 4, 1),
+(8, 'On My Way', '1', 'On_My_Way', 0, 1, 1, 4, 1),
 (11, 'Faded', '2', 'Faded', 0, NULL, 1, 4, 1),
 (12, 'Paraside', 'Paraside', 'Paraside', 0, NULL, 1, 4, 1),
 (14, 'Reality', 'reality', 'Reality', 0, NULL, 1, 4, 5),
@@ -182,7 +189,10 @@ CREATE TABLE `taikhoan` (
 --
 
 INSERT INTO `taikhoan` (`ID`, `TenTaiKhoan`, `MatKhau`, `TenNguoiDung`, `IsAdmin`, `Anh`, `NgaySinh`) VALUES
-(1, 'Minhmo', '123123', 'Lương Minh', NULL, NULL, '2022-10-19');
+(1, 'Minhmo', '123123', 'Lương Minh', NULL, NULL, '2022-10-19'),
+(2, 'Minh1', '1', 'Lương Văn Minh', 0, NULL, '0000-00-00'),
+(8, 'Minhmo1', '123123', 'Lương Minh', 0, NULL, '0000-00-00'),
+(9, 'Minhmo2', 'minh123', 'Lương Minh', 0, NULL, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -289,7 +299,7 @@ ALTER TABLE `theloai`
 -- AUTO_INCREMENT for table `album`
 --
 ALTER TABLE `album`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `baihat`
@@ -325,7 +335,7 @@ ALTER TABLE `playlist`
 -- AUTO_INCREMENT for table `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `theloai`
