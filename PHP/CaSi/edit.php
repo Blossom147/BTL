@@ -3,42 +3,45 @@ $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
     require_once "$rootDir/BTL/includes/admin/header.php";
 
 $link = new mysqli('localhost', 'root', '', 'webmusic') or die('Kết nối thất bại!!');
-$tenchude ="";
+$tencasi ="";
+$anh="";
 
 $errorMessage ="";
 $successMessage ="";
 
 if($_SERVER['REQUEST_METHOD'] == 'GET'){
     if(!isset($_GET["id"])){
-        header("location: /BTL/PHP/ChuDe/index.php");
+        header("location: /BTL/PHP/CaSi/index.php");
         exit;
     }
 
     $id = $_GET["id"];
     // Đọc dữ liệu có trong csdl
-    $sql = "Select * from chude Where ID = $id";
+    $sql = "Select * from casi Where ID = $id";
     $result = $link->query($sql);
     $row = $result->fetch_assoc();
 
     if(!$row){
-        header("location: /BTL/PHP/ChuDe/index.php");
+        header("location: /BTL/PHP/CaSi/index.php");
         exit;
     }
     $id = $row["ID"];
-    $tenchude = $row["TenChuDe"];
+    $tencasi = $row["Ten"];
+    $anh = $row["Anh"];
     
 }else{
-    $tenchude = $_POST["tenchude"];
+    $tencasi = $_POST["tencasi"];
+    $anh = $_POST["anh"];
     $id = $_GET["id"];
     
 
     do{
-        if(empty($tenchude)){
+        if(empty($tencasi)){
             $errorMessage =   "Bạn chưa điền đủ thông tin";
             break;
         }
         else{
-            $sql = "update chude Set TenChuDe = '$tenchude' Where ID = '$id'";
+            $sql = "update casi Set Ten = '$tencasi',Anh ='$anh' Where ID = '$id'";
             $result = $link->query($sql);
         }
         
@@ -48,7 +51,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
             break;
         }
         $successMessage = "Sửa thông tin thành công";
-        header("location: /BTL/PHP/ChuDe/index.php");
+        header("location: /BTL/PHP/CaSi/index.php");
         exit;
 
     }while(false);
@@ -56,7 +59,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 ?>
 
 <div class="card-body">
-    <h2>Chỉnh sửa thông tin chủ đề</h2>
+    <h2>Chỉnh sửa thông tin ca sĩ</h2>
 
     <?php
     if(!empty($errorMessage)){
@@ -70,11 +73,18 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
     ?>
     
     <form method="post">
-        <input type="hidden" tenchude ="id" value="<?php echo $id ?>">
+        <input type="hidden" tencasi ="id" value="<?php echo $id ?>">
         <div class="row mb-3">
-            <label class="col-sm-3 col-form-label">Chủ đề</label>
+            <label class="col-sm-3 col-form-label">Ca sĩ</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" name="tenchude" value="<?php echo $tenchude ?>">
+                <input type="text" class="form-control" name="tencasi" value="<?php echo $tencasi ?>">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label class="col-sm-3 col-form-label">Ảnh</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="anh" value="<?php echo $anh ?>">
             </div>
         </div>
 
@@ -97,7 +107,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
                 <button type="submit" class="btn btn-primary">Cập nhật</button>
             </div>
             <div class="col-sm-3 d-grid">
-                <a class="btn btn-outline-primary" href="/BTL/PHP/ChuDe/index.php" role="button">Quay lại</a>
+                <a class="btn btn-outline-primary" href="/BTL/PHP/CaSi/index.php" role="button">Quay lại</a>
             </div>
         </div>
     </form>

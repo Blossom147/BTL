@@ -5,17 +5,15 @@ $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
 <div class="card-body">
     <h2>Danh sách bài hát</h2>
     <br>
-    <a class="btn btn-primary" href="/BTL/PHP/Admin/create.php" role="button">Tạo mới</a>
+    <a class="btn btn-primary" href="/BTL/PHP/CaSi/create.php" role="button">Tạo mới</a>
     <br><br>
     <div class="table-responsive">
     <table id="myTable" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Tài khoản</th>
-                <th>Mật khẩu</th>
-                <th>Tên người dùng</th>
-                <th>Ngày sinh</th>
+                <th>Tên ca sĩ</th>
+                <th>Ảnh</th>
                 <th>Tùy chọn</th>
             </tr>
         </thead>
@@ -23,7 +21,7 @@ $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
         <?php 
             // Đọc dữ liệu 
             $link = new mysqli('localhost', 'root', '', 'webmusic') or die('Kết nối thất bại!!');
-            $sql = "Select * from taikhoan";
+            $sql = "Select * from casi";
             $result = $link->query($sql);
             if(!$result){
                 die($link->error);
@@ -35,13 +33,11 @@ $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
                 "
                 <tr>
                     <td>$row[ID]</td>
-                    <td>$row[TenTaiKhoan]</td>
-                    <td>$row[MatKhau]</td>
-                    <td>$row[TenNguoiDung]</td>
-                    <td>$row[NgaySinh]</td>
+                    <td>$row[Ten]</td>
+                    <td>$row[Anh]</td>
                     <td>
-                        <a class = 'btn btn-primary btn-sm' href = '/BTL/PHP/Admin/edit.php?id=$row[ID]'>Sửa</a>
-                        <a onclick='return ConfirmDelete();' class = 'btn btn-danger btn-sm' href = '/BTL/PHP/Admin/delete.php?id=$row[ID]'>Xóa</a>
+                        <a class = 'btn btn-primary btn-sm' href = '/BTL/PHP/CaSi/edit.php?id=$row[ID]'>Sửa</a>
+                        <a onclick='return ConfirmDelete();' class = 'btn btn-danger btn-sm' href = '/BTL/PHP/CaSi/delete.php?id=$row[ID]'>Xóa</a>
                     </td>
                     ";
             }
@@ -50,10 +46,8 @@ $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
         <tfoot>
             <tr>
                 <th>ID</th>
-                <th>Tài khoản</th>
-                <th>Mật khẩu</th>
-                <th>Tên người dùng</th>
-                <th>Ngày sinh</th>
+                <th>Tên ca sĩ</th>
+                <th>Ảnh</th>
                 <th>Tùy chọn</th>
             </tr>
         </tfoot>
@@ -65,4 +59,3 @@ $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
 $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
     require_once "$rootDir/BTL/includes/admin/footter.php"
 ?>
-

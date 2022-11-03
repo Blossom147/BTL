@@ -3,29 +3,29 @@ $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
     require_once "$rootDir/BTL/includes/admin/header.php";
 
     $link = new mysqli('localhost', 'root', '', 'webmusic') or die('Kết nối thất bại!!');
-    $tenchude ="";
+    $tentheloai ="";
 
     $errorMessage ="";
     $successMessage ="";
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $tenchude = $_POST["tenchude"];
+        $tentheloai = $_POST["tentheloai"];
     do{
-        $query ="Select * from chude where TenChuDe = '$tenchude'";
-            $checkchude = $link->query($query);
-            $row = $checkchude->fetch_assoc();
-        if($checkchude){
-            $Checktenchude = $row["TenChuDe"];
+        $query ="Select * from theloai where TenTheLoai = '$tentheloai'";
+            $checktheloai = $link->query($query);
+            $row = $checktheloai->fetch_assoc();
+        if($checktheloai){
+            $Checktentheloai = $row["TenTheLoai"];
         }
-        if(empty($tenchude)){
+        if(empty($tentheloai)){
             $errorMessage = "Vui lòng nhập đủ thông tin!";
             break;
-        } else  if($Checktenchude && $Checktenchude== $tenchude){
-            $errorMessage = " Chủ đề đã tồn tại";
+        } else  if($Checktentheloai && $Checktentheloai== $tentheloai){
+            $errorMessage = " Thể loại đã tồn tại";
             break;
         } 
-        $sql ="INSERT INTO chude (ID,TenChuDe)" . 
-        "Values('','$tenchude')";
+        $sql ="INSERT INTO theloai (ID,TenTheLoai)" . 
+        "Values('','$tentheloai')";
         $result = $link->query($sql);
 
         if(!$result){
@@ -33,14 +33,14 @@ $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
         break;
         }
         $successMessage = "THêm bài hát thành công";
-            header("location: /BTL/PHP/ChuDe/index.php");
+            header("location: /BTL/PHP/theloai/index.php");
             exit;
     }while(false);
     }
 ?>
 
 <div class="card-body">
-        <h2>Tạo mới chủ đề</h2>
+        <h2>Tạo mới thể loại</h2>
         <br><br>
        
         <form method="post">
@@ -56,9 +56,9 @@ $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
         ?>
            
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Tên chủ đề</label>
+                <label class="col-sm-3 col-form-label">Tên thể loại</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="tenchude" value="<?php echo $tenchude ?>">
+                    <input type="text" class="form-control" name="tentheloai" value="<?php echo $tentheloai ?>">
                 </div>
             </div>
 
@@ -84,7 +84,7 @@ $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
                     <button type="submit" class="btn btn-primary">Thêm</button>
                 </div>
                 <div class="col-sm-3 d-grid">
-                    <a class="btn btn-outline-primary" href="/BTL/PHP/ChuDe/index.php" role="button">Cancel</a>
+                    <a class="btn btn-outline-primary" href="/BTL/PHP/theloai/index.php" role="button">Quay lại</a>
                 </div>
             </div>
             

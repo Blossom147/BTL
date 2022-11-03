@@ -3,44 +3,46 @@ $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
     require_once "$rootDir/BTL/includes/admin/header.php";
 
     $link = new mysqli('localhost', 'root', '', 'webmusic') or die('Kết nối thất bại!!');
-    $tenchude ="";
+    $tencasi ="";
+    $anh ="";
 
     $errorMessage ="";
     $successMessage ="";
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $tenchude = $_POST["tenchude"];
+        $tencasi = $_POST["tencasi"];
+        $anh = $_POST["anh"];
     do{
-        $query ="Select * from chude where TenChuDe = '$tenchude'";
-            $checkchude = $link->query($query);
-            $row = $checkchude->fetch_assoc();
-        if($checkchude){
-            $Checktenchude = $row["TenChuDe"];
+        $query ="Select * from casi where Ten = '$tencasi'";
+            $checkcasi = $link->query($query);
+            $row = $checkcasi->fetch_assoc();
+        if($checkcasi){
+            $Checktencasi = $row["Ten"];
         }
-        if(empty($tenchude)){
+        if(empty($tencasi) || empty($anh)){
             $errorMessage = "Vui lòng nhập đủ thông tin!";
             break;
-        } else  if($Checktenchude && $Checktenchude== $tenchude){
-            $errorMessage = " Chủ đề đã tồn tại";
+        } else  if($Checktencasi && $Checktencasi== $tencasi){
+            $errorMessage = "Đã có nghệ danh ca sĩ này vui lòng kiểm tra lại!";
             break;
         } 
-        $sql ="INSERT INTO chude (ID,TenChuDe)" . 
-        "Values('','$tenchude')";
+        $sql ="INSERT INTO casi (ID,Ten,Anh)" . 
+        "Values('','$tencasi','$anh')";
         $result = $link->query($sql);
 
         if(!$result){
         $errorMessage = "câu lệnh không hợp lệ" .$link->error;
         break;
         }
-        $successMessage = "THêm bài hát thành công";
-            header("location: /BTL/PHP/ChuDe/index.php");
+        $successMessage = "THêm ca sĩ thành công";
+            header("location: /BTL/PHP/CaSi/index.php");
             exit;
     }while(false);
     }
 ?>
 
 <div class="card-body">
-        <h2>Tạo mới chủ đề</h2>
+        <h2>Tạo mới ca sĩ</h2>
         <br><br>
        
         <form method="post">
@@ -56,9 +58,16 @@ $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
         ?>
            
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Tên chủ đề</label>
+                <label class="col-sm-3 col-form-label">Tên ca sĩ</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="tenchude" value="<?php echo $tenchude ?>">
+                    <input type="text" class="form-control" name="tencasi" value="<?php echo $tencasi ?>">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Ảnh</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="anh" value="<?php echo $anh ?>">
                 </div>
             </div>
 
@@ -84,7 +93,7 @@ $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
                     <button type="submit" class="btn btn-primary">Thêm</button>
                 </div>
                 <div class="col-sm-3 d-grid">
-                    <a class="btn btn-outline-primary" href="/BTL/PHP/ChuDe/index.php" role="button">Cancel</a>
+                    <a class="btn btn-outline-primary" href="/BTL/PHP/CaSi/index.php" role="button">Quay lại</a>
                 </div>
             </div>
             

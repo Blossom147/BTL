@@ -3,7 +3,7 @@
 <script src="/BTL/js/jquery.dataTables.min.js"></script>
 <script>
 function ConfirmDelete(){
-    var x = confirm("Are you sure you want to delete?");
+    var x = confirm("Bạn chắc chắn muốn xóa ?");
   if (x)
       return true;
   else
