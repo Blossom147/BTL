@@ -32,9 +32,6 @@
                         <input type="password" name="re-password" placeholder="What is your password?">
                     </div>
                     <input type="submit" name="signup" method="post" value="Sign Up" class="submit">
-                    <dev class="between_content_check">
-                        <input type="checkbox" name="" id=""><span>Remenber Me.</span>
-                    </dev>
                     <?php 
                         require_once '../PHP/user.php';
                         $link = new mysqli('localhost', 'root', '', 'webmusic') or die('Kết nối thất bại!!');

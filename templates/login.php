@@ -30,6 +30,9 @@
                         <input type="password" name="password" placeholder="What is your password?">
                     </div>
                     <input type="submit" name="login" value="Login" class="submit">
+                    <!-- <dev class="between_content_check">
+                        <input type="checkbox" name="remember" value="1" id=""><span>Remenber Me.</span>
+                    </dev> -->
                 
                     <?php 
                         if(isset($_POST['login']) && isset($_POST['username']) && isset($_POST['password'])){
@@ -67,9 +70,7 @@
                         
                     ?>
                 
-                    <dev class="between_content_check">
-                        <input type="checkbox" name="remember" id=""><span>Remenber Me.</span>
-                    </dev>
+                    
                     <p>Don't have a account yet? <a href="signup.php">Sign Up</a></p>
                 </form>
             </div>

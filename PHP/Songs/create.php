@@ -37,6 +37,7 @@ $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
         $query ="Select * from baihat where TenBaiHat = '$tenbaihat'";
             $checkbaihat = $link->query($query);
             $row = $checkbaihat->fetch_assoc();
+        
         if($checkbaihat){
             $Checktenbaihat = $row["TenBaiHat"];
         }
@@ -46,11 +47,15 @@ $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
         } else  if($Checktenbaihat && $Checktenbaihat== $tenbaihat){
             $errorMessage = " Bài hát đã tồn tại";
             break;
-        } else if( $album == "--Chọn Album--"){
-            $album = '';
+        } 
+        if(!$album){
+            $sql ="INSERT INTO baihat (ID,TenBaiHat,Anh,File,LuotThich,IDChuDe,IDTheLoai,IDCasi)" . 
+            "Values('','$tenbaihat','$anh','$file','','$chude','$theloai','$casi')";
+        }else{
+            $sql ="INSERT INTO baihat (ID,TenBaiHat,Anh,File,LuotThich,IDAlbum,IDChuDe,IDTheLoai,IDCasi)" . 
+            "Values('','$tenbaihat','$anh','$file','','$album','$chude','$theloai','$casi')";
         }
-        $sql ="INSERT INTO baihat (ID,TenBaiHat,Anh,File,LuotThich,IDAlbum,IDChuDe,IDTheLoai,IDCasi)" . 
-        "Values('','$tenbaihat','$anh','$file','','$album','$chude','$theloai','$casi')";
+       
         $result = $link->query($sql);
 
         if(!$result){
