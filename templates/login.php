@@ -1,4 +1,9 @@
-<?php     $link = new mysqli('localhost', 'root', '', 'webmusic') or die('Kết nối thất bại!!');?>
+<?php     
+    $link = new mysqli('localhost', 'root', '', 'webmusic') or die('Kết nối thất bại!!');
+    require_once '../PHP/user.php';
+    session_start();
+    session_unset();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,8 +32,6 @@
                     <input type="submit" name="login" value="Login" class="submit">
                 
                     <?php 
-                        require_once '../PHP/user.php';
-                        session_start();
                         if(isset($_POST['login']) && isset($_POST['username']) && isset($_POST['password'])){
                             $username =  trim($_POST['username']);
                             $password =  trim($_POST['password']);
@@ -47,6 +50,10 @@
                                 if($acc){  
                                     echo 'Bạn đã đăng nhập thành công!';
                                     $_SESSION['username'] = $username;
+                                    if(isAdmin($username, $link)){
+                                        $_SESSION['isAdmin'] = 1;
+                                    }
+
                                     header("Location: http://localhost/BTL/");
                                 }
                                 else{

@@ -9,12 +9,14 @@
                 <input type="text" placeholder="Search music">
             </div>
             <div class="user">
-                <?php $hello = isset($_SESSION['username']) ? "Hello, {$_SESSION['username']}" : "Login" ?>
-                <ul><a href="/BTL/templates/login.php" style="text-decoration:none;"><li><?php echo $hello ?></li></a>
-                <?php 
-                    
+            <?php 
+                    $hello = isset($_SESSION['username']) ? "Hello, {$_SESSION['username']}" : "Login";
+                    $admin = isset($_SESSION['isAdmin']);
                 ?>
-                <a href="/BTL/PHP/Admin/index.php" style="text-decoration:none;"><li>Quản lý</li></a></ul>
+                <ul>
+                <a href="/BTL/templates/login.php" style="text-decoration:none;"><li><?php echo $hello ?></li></a>
+                <a href="/BTL/PHP/Admin/index.php" style="text-decoration:none;"><li>Manager</li></a>
+                </ul>
             </div>
         </nav>
         <div class="content">
