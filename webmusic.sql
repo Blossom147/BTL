@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 03, 2022 at 01:29 AM
+-- Generation Time: Nov 10, 2022 at 04:12 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -70,7 +70,10 @@ INSERT INTO `baihat` (`ID`, `TenBaiHat`, `Anh`, `File`, `LuotThich`, `IDAlbum`, 
 (12, 'Paraside', 'Paraside', 'Paraside', 0, NULL, 1, 4, 1),
 (14, 'Reality', 'reality', 'Reality', 0, NULL, 1, 4, 5),
 (15, 'If we have each other', '3', 'alec_benjamin_if_we_have_each_other_official_music_video_232164', 0, NULL, 3, 4, 6),
-(21, 'If I Killed Someone For You', 'ifikilledsomeoneforyou', 'If_I_Killed_Someone_For_You', 0, NULL, 1, 4, 6);
+(21, 'If I Killed Someone For You', 'ifikilledsomeoneforyou', 'If_I_Killed_Someone_For_You', 0, NULL, 1, 4, 6),
+(25, 'Cheap Thrills', 'cheap_thrills', 'cheap_thrills', 0, NULL, 1, 4, 7),
+(26, 'ThunderCloud', 'thundercloud', 'ThunderCloud', 0, NULL, 1, 4, 7),
+(27, 'Unstoppable', 'unstoppable', 'unstoppable', 0, NULL, 1, 4, 7);
 
 -- --------------------------------------------------------
 
@@ -106,7 +109,8 @@ INSERT INTO `casi` (`ID`, `Ten`, `Anh`, `ThongTin`) VALUES
 (3, 'Raazi', '16', NULL),
 (4, 'Takasha', '17', NULL),
 (5, 'Lost Frequencies', 'lostfrequencies', 'được biết đến với nghệ danh Lost Frequencies, là một DJ và nhà sản xuất thu âm người Bỉ. Anh được biết đến với các đĩa đơn \"Are You with Me\" vào năm 2014, \"Reality\" vào năm 2015 và \"Where Are You Now\" cùng với Calum Scott vào năm 2021'),
-(6, 'Alec Benjamin', 'alecbenjamin', NULL);
+(6, 'Alec Benjamin', 'alecbenjamin', NULL),
+(7, 'Sia', 'Sia', NULL);
 
 -- --------------------------------------------------------
 
@@ -150,10 +154,24 @@ INSERT INTO `chude` (`ID`, `TenChuDe`, `Anh`) VALUES
 
 CREATE TABLE `danhgia` (
   `ID` int(11) NOT NULL,
+  `ID_Parent` int(11) DEFAULT NULL,
   `NoiDung` varchar(255) NOT NULL,
   `ThoiGianDanhGia` datetime DEFAULT current_timestamp(),
   `IDBaiHat` int(11) NOT NULL,
   `IDTaiKhoan` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `luotnghe`
+--
+
+CREATE TABLE `luotnghe` (
+  `ID` int(11) NOT NULL,
+  `ThoiGian` date DEFAULT current_timestamp(),
+  `TaiKhoanID` int(11) DEFAULT NULL,
+  `BaiHatID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -189,10 +207,9 @@ CREATE TABLE `taikhoan` (
 --
 
 INSERT INTO `taikhoan` (`ID`, `TenTaiKhoan`, `MatKhau`, `TenNguoiDung`, `IsAdmin`, `Anh`, `NgaySinh`) VALUES
-(1, 'Minhmo', '123123', 'Lương Minh', NULL, NULL, '2022-10-19'),
-(2, 'Minh1', '1', 'Lương Văn Minh', 0, NULL, '0000-00-00'),
-(8, 'Minhmo1', '123123', 'Lương Minh', 0, NULL, '0000-00-00'),
-(9, 'Minhmo2', 'minh123', 'Lương Minh', 0, NULL, '0000-00-00');
+(1, 'Minhmo', '123123', 'Lương Minh', 1, NULL, '2022-10-19'),
+(11, 'Minhmoo', '123123', 'Lwowng Minh', 0, NULL, '0000-00-00'),
+(12, 'FakeOut1012', '12', '123123', 0, NULL, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -270,7 +287,16 @@ ALTER TABLE `chude`
 ALTER TABLE `danhgia`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `IDBaiHat` (`IDBaiHat`),
-  ADD KEY `IDTaiKhoan` (`IDTaiKhoan`);
+  ADD KEY `IDTaiKhoan` (`IDTaiKhoan`),
+  ADD KEY `ID_Parent` (`ID_Parent`);
+
+--
+-- Indexes for table `luotnghe`
+--
+ALTER TABLE `luotnghe`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `TaiKhoanID` (`TaiKhoanID`),
+  ADD KEY `BaiHatID` (`BaiHatID`);
 
 --
 -- Indexes for table `playlist`
@@ -305,13 +331,13 @@ ALTER TABLE `album`
 -- AUTO_INCREMENT for table `baihat`
 --
 ALTER TABLE `baihat`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `casi`
 --
 ALTER TABLE `casi`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `chude`
@@ -326,6 +352,12 @@ ALTER TABLE `danhgia`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `luotnghe`
+--
+ALTER TABLE `luotnghe`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `playlist`
 --
 ALTER TABLE `playlist`
@@ -335,7 +367,7 @@ ALTER TABLE `playlist`
 -- AUTO_INCREMENT for table `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `theloai`
@@ -375,7 +407,15 @@ ALTER TABLE `casi-album`
 --
 ALTER TABLE `danhgia`
   ADD CONSTRAINT `danhgia_ibfk_1` FOREIGN KEY (`IDBaiHat`) REFERENCES `baihat` (`ID`),
-  ADD CONSTRAINT `danhgia_ibfk_2` FOREIGN KEY (`IDTaiKhoan`) REFERENCES `taikhoan` (`ID`);
+  ADD CONSTRAINT `danhgia_ibfk_2` FOREIGN KEY (`IDTaiKhoan`) REFERENCES `taikhoan` (`ID`),
+  ADD CONSTRAINT `danhgia_ibfk_3` FOREIGN KEY (`ID_Parent`) REFERENCES `danhgia` (`ID`);
+
+--
+-- Constraints for table `luotnghe`
+--
+ALTER TABLE `luotnghe`
+  ADD CONSTRAINT `luotnghe_ibfk_1` FOREIGN KEY (`TaiKhoanID`) REFERENCES `taikhoan` (`ID`),
+  ADD CONSTRAINT `luotnghe_ibfk_2` FOREIGN KEY (`BaiHatID`) REFERENCES `baihat` (`ID`);
 
 --
 -- Constraints for table `playlist`
