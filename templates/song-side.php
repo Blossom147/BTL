@@ -9,13 +9,17 @@
                 <input type="text" placeholder="Search music">
             </div>
             <div class="user">
+            <ul>
             <?php 
                     $hello = isset($_SESSION['username']) ? "Hello, {$_SESSION['username']}" : "Login";
                     $admin = isset($_SESSION['isAdmin']);
+                    echo "  <a href='/BTL/templates/login.php' style='text-decoration:none;'><li> $hello</li></a>";
+                    if($admin){
+                        echo ' <a href="/BTL/PHP/Admin/index.php" style="text-decoration:none;"><li>Manager</li></a>';
+                    }
                 ?>
-                <ul>
-                <a href="/BTL/templates/login.php" style="text-decoration:none;"><li><?php echo $hello ?></li></a>
-                <a href="/BTL/PHP/Admin/index.php" style="text-decoration:none;"><li>Manager</li></a>
+                
+                
                 </ul>
             </div>
         </nav>
